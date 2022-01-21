@@ -26,13 +26,18 @@ def go(filename, resume_line=0):
             if "".join(userline) == line:
                 userline = list()
                 line_num += 1
+            if line_num >= len(lines):
+                print(term.clear)
+                print(f"finished with file!")
+                break
         elif inp.name == "KEY_ESCAPE":
+            print(term.clear)
+            print(
+                f"last line index: {line_num}. use -r {line_num} to resume at this line"
+            )
             break
         elif inp in line:
             userline.append(inp)
-
-    print(term.clear)
-    print(f"last line index: {line_num}")
 
 
 if __name__ == "__main__":
