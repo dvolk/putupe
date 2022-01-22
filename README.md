@@ -1,22 +1,30 @@
 # Putupe
 
-Putupe (pronounced pytype) is a minimal terminal typing practice program.
+<img src="https://i.imgur.com/LQuGG3p.png">
+
+Putupe (pronounced pytype) is a terminal typing practice program.
 
 Give it a text file and it will present it one line at a time for you to rewrite.
 
-## Screenshot
-
-<img src="https://i.imgur.com/LQuGG3p.png">
-
 ## Installation
 
+    sudo apt install python3-pip
     git clone https://github.com/dvolk/putupe
-    cd putupe
     pip3 install argh blessed
 
 ## Running
 
+    cd putupe
     python3 putupe.py <text file>
+
+for example:
+
+    python3 putupe.py putupe.py
+
+or:
+
+    python3 putupe.py /usr/share/dict/american-english
+
 
 Press enter once the line you entered matches the line presented to continue to the next line.
 
