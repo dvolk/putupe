@@ -16,6 +16,7 @@ def go(filename, resume_line=0, shuffle=True):
         random.shuffle(lines)
     line_num = resume_line
     userline = list()
+    userkey = 0
 
     while True:
         print(term.home + term.clear)
@@ -27,25 +28,20 @@ def go(filename, resume_line=0, shuffle=True):
         with term.cbreak(), term.hidden_cursor():
             inp = term.inkey()
 
-        if inp.name == "KEY_BACKSPACE":
-            if userline:
-                userline.pop()
-        elif inp.name == "KEY_ENTER":
+        if inp.name == "KEY_ENTER":
             if "".join(userline) == line:
                 userline = list()
                 line_num += 1
             if line_num >= len(lines):
-                print(term.clear)
-                print(f"finished with file!")
-                break
+                line_num = 0
+            userkey = 0
         elif inp.name == "KEY_ESCAPE":
             print(term.clear)
-            print(
-                f"last line index: {line_num}. use -r {line_num} to resume at this line"
-            )
+            print(f"Line index: {line_num}.")
             break
-        elif inp in line:
+        elif len(line) >= userkey + 1 and inp == line[userkey]:
             userline.append(inp)
+            userkey += 1
 
 
 if __name__ == "__main__":
