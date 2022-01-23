@@ -7,7 +7,11 @@ import blessed
 def go(filename, resume_line=0, shuffle=True):
     term = blessed.Terminal()
 
-    lines = [line.strip() for line in open(filename).readlines() if line.strip()]
+    lines = [
+        line.strip()
+        for line in open(filename).readlines()
+        if line.strip() and len(line) < term.width - 6
+    ]
     if shuffle:
         random.shuffle(lines)
     line_num = resume_line
