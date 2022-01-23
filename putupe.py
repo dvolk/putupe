@@ -4,7 +4,7 @@ import argh
 import blessed
 
 
-def go(filename, resume_line=0, shuffle=True):
+def go(filename="dict.txt", resume_line=0, shuffle=True):
     term = blessed.Terminal()
 
     lines = [
