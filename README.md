@@ -1,8 +1,8 @@
 # Putupe
 
-<img src="https://i.imgur.com/LQuGG3p.png">
-
 Putupe (pronounced pytype) is a terminal typing practice program.
+
+<img src="https://i.imgur.com/23BQYaC.png">
 
 Give it a text file and it will present it one line at a time for you to rewrite.
 
