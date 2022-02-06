@@ -8,9 +8,9 @@ def go(filename="dict.txt", resume_line=0, shuffle=True):
     term = blessed.Terminal()
 
     lines = [
-        line.strip()
+        l
         for line in open(filename).readlines()
-        if line.strip() and len(line) < term.width - 6
+        if (l := line.strip()) and len(l) < term.width - 6
     ]
     if shuffle:
         random.shuffle(lines)
